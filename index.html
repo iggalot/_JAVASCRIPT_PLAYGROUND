@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title>Playground</title>
+    <link rel="stylesheet" href="styles.css">
+    <h1>A header</h1>
+</head>
+<body>
+    <h1>A body</h1>
+    <button class="button" onclick="button_1_click()">Page 1</button>
+    <button class="button" onclick="button_2_click()">Page 2</button>
+
+    <script>
+        let app = [];
+
+        function button_1_click() {
+            window.location = "index2.html";
+            console.log("This is button 1");
+        }
+
+        function button_2_click() {
+            window.location = "index3.html";
+            console.log("This is button 2");
+        }
+    </script>
+
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
+</html>
