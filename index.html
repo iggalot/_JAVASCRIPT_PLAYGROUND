@@ -5,21 +5,50 @@
     <h1>A header</h1>
 </head>
 <body>
-    <h1>A body</h1>
-    <button class="button" onclick="button_1_click()">Page 1</button>
-    <button class="button" onclick="button_2_click()">Page 2</button>
+    <button class="button" onclick="selectWorldFile()">📁Load existing file</button>
+    <button class="button" onclick="open_editor()">Open Editor</button>
+    <button class="button" onclick="start_simulation()">Visualizer (START)</button>
+
+    <div id="filename"></div>
 
     <script>
         let app = [];
+        
+        function selectWorldFile() {
+            var files = [];
 
-        function button_1_click() {
-            window.location = "index2.html";
-            console.log("This is button 1");
+            console.log("in select world");
+            let input = document.createElement('input');
+            input.type = 'file';
+            input.id="fileInput"
+            input.accept=".world"
+            input.onchange = ((e) => {
+                console.log("on change triggered");
+                if(e.target.files.length > 0){
+                    localStorage.setItem('selectedFile', e.target.files[0].name);
+                    app.fileName = localStorage.getItem('selectedFile');
+                    app.isSelected = true;
+                    app.isLoaded = false;
+                    document.getElementById('filename').innerText = app.fileName;
+                    console.log(app.fileName);
+
+                }
+            });
+            console.log("filename in storage: "+ localStorage.getItem('selectedFile'));
+            console.log("before click");
+            input.click();
+            console.log("after click");
+            console.log("filename in storage: " + localStorage.getItem('selectedFile'));
         }
 
-        function button_2_click() {
+        function open_editor() {
+            window.location = "index2.html";
+            console.log("This launches the editor");
+        }
+
+        function start_simulation() {
             window.location = "index3.html";
-            console.log("This is button 2");
+            console.log("This launches the visualizer");
         }
     </script>
 

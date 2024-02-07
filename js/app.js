@@ -1,6 +1,7 @@
 class Application {
     constructor() {
-        this.isLoaded = true;
-        this.Jim = true;
+        this.fileIsSelected = false;
+        this.fileIssLoaded = false;
+        this.fileName = "";
     }
 };
